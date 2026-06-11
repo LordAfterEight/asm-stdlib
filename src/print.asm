@@ -2,10 +2,9 @@ section .text
     global print
     extern strlen
 
-print:
+print:          ; Expects text address in rsi
     call strlen
     mov rdx, rax
-    mov rsi, r8
     mov rax, 1
     mov rdi, 1
     syscall

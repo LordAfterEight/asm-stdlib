@@ -1,4 +1,4 @@
-mkdir build
+mkdir -p build
 nasm src/print.asm -f elf64 -o build/print.o
 nasm src/readln.asm -f elf64 -o build/readln.o
 nasm src/strcmp.asm -f elf64 -o build/strcmp.o

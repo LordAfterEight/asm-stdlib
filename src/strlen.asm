@@ -1,18 +1,13 @@
 section .text
     global strlen
 
-strlen:
-    push r8
-    push rcx
+strlen:         ; Expects str in rsi
     mov rax, 0
-    mov rcx, r8
 .loop:
-    cmp byte [rcx], 0
+    cmp byte [rsi], 0
     je .done
     inc rax
-    inc rcx
+    inc rsi
     jmp .loop
 .done:
-    pop rcx
-    pop r8
     ret

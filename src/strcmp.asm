@@ -4,8 +4,8 @@ section .text
 strcmp:         ; Expects str1 in rsi, str2 in rdi
     push r8
     push rbx
-    mov r8, 0
-    mov rax, 0
+    xor r8, r8
+    xor rax, rax
 .loop:
     movzx rax, byte [rsi+r8]
     movzx rbx, byte [rdi+r8]

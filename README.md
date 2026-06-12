@@ -1,4 +1,22 @@
 # asm-stdlib
-A small personal collection of simple "stdlib" tools for use in x86_64 assembly
+A small personal collection of simple "stdlib" tools for use in x86_64 assembly.
 
-To use this, simply run the build script and copy the resulting `stdlib.o` to whereever you want to use it. You'll need to include it in the linking command
+To use this, simply run the build script and copy the resulting `stdlib.o` to whereever you want to use it. You'll need to include it in the linking command.
+
+## Features:
+- strlen
+- strcmp
+- readln
+- print
+
+### strlen
+This routine takes the address of a string of bytes in `rsi` and reads until it encounters a nullbyte.
+
+### strcmp
+This routine takes the addresses of two strings in `rsi` and `rdi` and reads until either there is a difference or there is a nullbyte in both at the same time. Returns 1 in `rax` if the strings are equal, 0 if not.
+
+### readln
+This routine makes use of a Linux syscall to read a line from a terminal. Takes the address of the buffer to read to in `rsi`. Blocks until `Return` is pressed. Returns the number of read bytes in `rax`.
+
+### print
+This routine takes the address of a string in `rsi` and prints it using the Linux syscall `write`

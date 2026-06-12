@@ -1,11 +1,15 @@
-TARGET=${TARGET:-linux}
+TARGET=${1:-linux}
 
-if [ "$TARGET" = "win64" ]; then
-    FORMAT="win64"
-    LINK_EMU="i386pep"
-else
+if [ "$TARGET" = "windows" ]; then
+    echo "Currently not supported. Keep an eye on the GitHub:"
+    echo "https://github.com/LordAfterEight/asm-stdlib"
+    exit 0
+elif [ "$TARGET" = "linux" ]; then
     FORMAT="elf64"
     LINK_EMU="elf_x86_64"
+else
+    echo "Invalid build target: $TARGET"
+    exit 1
 fi
 
 echo "Building for target: $TARGET"

@@ -1,23 +1,23 @@
 section .text
     global strcmp
 
-strcmp:         ; Expects str1 in rdi and str2 in rsi
-    push rcx
+strcmp:
+    push r8
     push rbx
-    mov rcx, 0
+    mov r8, 0
     mov rax, 0
 .loop:
-    movzx rax, byte [rdi+rcx]
-    movzx rbx, byte [rsi+rcx]
+    movzx rax, byte [rsi+r8]
+    movzx rbx, byte [rdi+r8]
     cmp rax, rbx
     jne .done
     cmp rax, 0
     je  .equal
-    inc rcx
+    inc r8
     jmp .loop
 .equal:
     mov rax, 1
 .done:
     pop rbx
-    pop rcx
+    pop r8
     ret

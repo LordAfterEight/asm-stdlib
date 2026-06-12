@@ -1,7 +1,7 @@
 section .text
     global strcmp
 
-strcmp:
+strcmp:         ; Expects str1 in rsi, str2 in rdi
     push r8
     push rbx
     mov r8, 0

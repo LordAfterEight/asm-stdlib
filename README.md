@@ -19,7 +19,7 @@ This routine takes the address of a string of bytes in `rdi` and reads until it 
 This routine takes the addresses of two strings in `rsi` and `rdi` and reads until either there is a difference or there is a nullbyte in both at the same time. Returns 1 in `rax` if the strings are equal, 0 if not.
 
 ### readln
-This routine makes use of a Linux syscall to read a line from a terminal. Takes the address of the buffer to read to in `rsi`. Blocks until `Return` is pressed. Returns the number of read bytes in `rax`.
+This routine makes use of a Linux syscall to read a line from a terminal. Takes the address of the buffer to read to in `rdi`. and length in `rsi`. Blocks until `Return` is pressed. Returns the number of read bytes in `rax`.
 
 ### print
 This routine takes the address of a string in `rdi` and prints it using the Linux syscall `write`

@@ -13,7 +13,7 @@ To use this, simply run the build script and copy the resulting `stdlib.o` to wh
 - print
 
 ### strlen
-This routine takes the address of a string of bytes in `rsi` and reads until it encounters a nullbyte. The length of the string is stored in `rax`.
+This routine takes the address of a string of bytes in `rdi` and reads until it encounters a nullbyte. The length of the string is stored in `rax`.
 
 ### strcmp
 This routine takes the addresses of two strings in `rsi` and `rdi` and reads until either there is a difference or there is a nullbyte in both at the same time. Returns 1 in `rax` if the strings are equal, 0 if not.
@@ -22,4 +22,4 @@ This routine takes the addresses of two strings in `rsi` and `rdi` and reads unt
 This routine makes use of a Linux syscall to read a line from a terminal. Takes the address of the buffer to read to in `rsi`. Blocks until `Return` is pressed. Returns the number of read bytes in `rax`.
 
 ### print
-This routine takes the address of a string in `rsi` and prints it using the Linux syscall `write`
+This routine takes the address of a string in `rdi` and prints it using the Linux syscall `write`
